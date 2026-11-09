@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jewille Dagami — Remote Executive Assistant</title>
+<meta name="description" content="I keep founders organized, on time & on track. Remote Executive Assistant: calendar, inbox, Xero bookkeeping, lead research and content operations.">
+<style>
+  :root{
+    --cream:#F2ECE3; --cream-2:#EAE2D6; --paper:#F7F3EC; --white:#FDFBF7;
+    --wine:#7B2E3F; --wine-dark:#5E222F; --ink:#191412; --taupe:#8A7A6B;
+    --blush:#E7CFCB;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65}
+  img{max-width:100%}
+  a{color:var(--wine)}
+
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+  section{padding:90px 0}
+  .kicker{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--wine);font-weight:700;margin-bottom:14px}
+  h2{font-size:clamp(30px,4.2vw,48px);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:18px}
+  .sub{color:#6b6055;max-width:600px;margin-bottom:46px;font-size:16px}
+
+  .btn{display:inline-block;background:var(--wine);color:#fff;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:16px 32px;border-radius:999px;text-decoration:none;transition:background .2s}
+  .btn:hover{background:var(--wine-dark)}
+  .btn.light{background:var(--white);color:var(--wine)}
+  .btn.light:hover{background:var(--blush)}
+
+  /* ===== Hero ===== */
+  .hero{padding:0;background:var(--cream)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;align-items:center}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+  .hero-photo{background:var(--cream-2);display:flex;align-items:flex-end;justify-content:center;height:100%;min-height:520px;position:relative;overflow:hidden}
+  .hero-photo img{height:88%;width:auto;object-fit:contain;display:block}
+  .hero-copy{padding:80px 48px}
+  .hero-copy .kicker{margin-bottom:18px}
+  .hero-copy h1{font-size:clamp(48px,7vw,84px);font-weight:700;letter-spacing:-.03em;line-height:.98}
+  .hero-copy .lede{margin:24px 0 32px;color:#6b6055;font-size:17px;max-width:420px}
+  .socials{display:flex;gap:14px;margin-top:34px}
+  .socials a{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink);font-size:15px;font-weight:700}
+  .socials a:hover{background:var(--wine);color:#fff;border-color:var(--wine)}
+
+  /* ===== About ===== */
+  .about{background:var(--cream)}
+  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+  .hire-card{background:var(--white);border-radius:18px;padding:30px;box-shadow:0 20px 50px rgba(25,20,18,.08);margin-top:26px}
+  .hire-card h3{font-size:16px;margin-bottom:10px}
+  .hire-card h3 em{font-style:normal;background:linear-gradient(transparent 60%, var(--blush) 60%)}
+  .hire-card p{font-size:15px;color:#6b6055}
+
+  /* ===== Services (black) ===== */
+  .services{background:var(--ink);color:var(--cream)}
+  .services .kicker{color:var(--blush)}
+  .services h2{color:#fff}
+  .services .sub{color:#b8ada2}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.svc-grid{grid-template-columns:1fr}}
+  .svc{background:#241e1a;border:1px solid #3a322c;border-radius:16px;padding:26px;transition:border-color .2s}
+  .svc:hover{border-color:var(--wine)}
+  .svc .folder{font-size:22px;margin-bottom:14px}
+  .svc .tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#b8ada2;margin-bottom:8px;font-weight:700}
+  .svc h3{color:#fff;font-size:18px;margin-bottom:8px}
+  .svc p{font-size:14px;color:#b8ada2}
+
+  /* ===== Pricing (wine) ===== */
+  .pricing{background:var(--wine);color:#fff}
+  .pricing .kicker{color:var(--blush)}
+  .pricing h2{color:#fff}
+  .pricing .sub{color:#e6c9cd}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  @media(max-width:900px){.plans{grid-template-columns:1fr}}
+  .plan{background:var(--white);color:var(--ink);border-radius:18px;padding:32px;display:flex;flex-direction:column;position:relative}
+  .plan.featured{background:var(--ink);color:var(--cream);outline:3px solid var(--blush);outline-offset:4px}
+  .plan .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--blush);color:var(--wine-dark);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:6px 16px;border-radius:999px;white-space:nowrap}
+  .plan h3{font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--wine);margin-bottom:6px}
+  .plan.featured h3{color:var(--blush)}
+  .plan .price{font-size:44px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+  .plan .price small{font-size:15px;font-weight:500;color:var(--taupe)}
+  .plan.featured .price small{color:#9c8f83}
+  .plan ul{list-style:none;margin:18px 0 28px;flex:1}
+  .plan li{font-size:14px;padding:6px 0 6px 22px;position:relative;color:#54483d}
+  .plan.featured li{color:#cfc4b8}
+  .plan li::before{content:"—";position:absolute;left:0;color:var(--wine);font-weight:700}
+  .plan .btn{align-self:center}
+
+  /* ===== Testimonials ===== */
+  .testi{background:var(--cream)}
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:820px){.quotes{grid-template-columns:1fr}}
+  .quote{background:var(--white);border-radius:18px;padding:30px;box-shadow:0 16px 40px rgba(25,20,18,.07);position:relative}
+  .quote .bubble{font-size:15px;font-style:italic;color:#54483d;margin-bottom:18px}
+  .quote .who{display:flex;align-items:center;gap:12px;font-size:14px}
+  .quote .who .init{width:40px;height:40px;border-radius:50%;background:var(--wine);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+  .quote .who b{display:block}
+  .quote .who span{color:var(--taupe);font-size:13px}
+
+  /* ===== Tools ===== */
+  .tools{background:var(--cream-2);border-top:1px solid #ddd2c3;border-bottom:1px solid #ddd2c3}
+  .tool-grid{display:flex;flex-wrap:wrap;gap:12px}
+  .tool{font-size:14px;font-weight:600;padding:11px 24px;border-radius:999px;background:var(--white);border:1px solid #ddd2c3;color:#54483d}
+  .tool:hover{border-color:var(--wine);color:var(--wine)}
+
+  /* ===== Experience ===== */
+  .timeline{display:grid;gap:0}
+  .titem{display:grid;grid-template-columns:180px 1fr;gap:30px;padding:26px 0;border-bottom:1px solid #ddd2c3}
+  @media(max-width:700px){.titem{grid-template-columns:1fr;gap:6px}}
+  .titem .when{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);padding-top:4px}
+  .titem h3{font-size:19px;margin-bottom:4px}
+  .titem .meta{font-size:14px;color:var(--taupe);margin-bottom:4px}
+  .titem p{font-size:14.5px;color:#6b6055}
+
+  /* ===== CTA banner ===== */
+  .cta{background:var(--ink);color:var(--cream)}
+  .cta-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+  @media(max-width:820px){.cta-grid{grid-template-columns:1fr}}
+  .cta h2{color:#fff}
+  .cta p{color:#b8ada2;margin-bottom:30px}
+  .cta-note{background:rgba(255,255,255,.06);border:1px solid #3a322c;border-radius:16px;padding:26px;font-size:14px;color:#cfc4b8}
+  .cta-note b{color:var(--blush)}
+
+  footer{background:var(--ink);color:#8a7f73;font-size:13px;padding:30px 0;border-top:1px solid #3a322c}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  footer b{color:var(--cream)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid" style="padding:0">
+    <div class="hero-photo">
+      <img src="assets/profile-cutout.png" alt="Jewille Dagami in a pink floral dress, smiling">
+    </div>
+    <div class="hero-copy">
+      <div class="kicker">Remote Executive Assistant</div>
+      <h1>Jewille<br>Dagami</h1>
+      <p class="lede">Helping busy founders stay organized, supported, and focused on growth — calendar, books, inbox, leads and content, handled.</p>
+      <a class="btn" href="mailto:rjewille@gmail.com?subject=Discovery%20Call">Email to Book a Call&nbsp;↗</a>
+      <div class="socials">
+        <a href="mailto:rjewille@gmail.com" title="Email">✉</a>
+        <a href="tel:+639302884899" title="Phone">☎</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="LinkedIn">in</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap" style="max-width:760px">
+    <div>
+      <div class="kicker">About me</div>
+      <h2>about me.</h2>
+      <p style="color:#6b6055;margin-bottom:8px">I'm Jewille Dagami, a remote Executive Assistant who believes the right support can make all the difference in a business. With a background in bookkeeping, clinic support and office administration, I bring accuracy, efficiency and structure to your day-to-day operations.</p>
+      <div class="hire-card">
+        <h3>why they <em>HIRE</em> me?</h3>
+        <p>Hi, I'm Jewille, a dependable Executive Assistant helping founders and small business owners manage their daily tasks, stay organized, and make more time for growth. I don't just complete tasks — <strong>I set up systems that keep your business running smoothly.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="kicker">How I can help</div>
+    <h2>what I can help with.</h2>
+    <p class="sub">One steady pair of hands across the operations that keep a founder's week on track.</p>
+    <div class="svc-grid">
+      <div class="svc"><div class="folder">📁</div><div class="tag">Executive Support</div><h3>Calendar &amp; Inbox</h3><p>Scheduling across time zones, plus email and Slack drafting in your voice.</p></div>
+      <div class="svc"><div class="folder">📊</div><div class="tag">Bookkeeping</div><h3>Xero &amp; Reconciliation</h3><p>Books reconciled and ready whenever your accountant asks.</p></div>
+      <div class="svc"><div class="folder">🔍</div><div class="tag">Lead Research</div><h3>Prospect Dossiers</h3><p>A clear dossier on every lead, plus GoHighLevel lead pages.</p></div>
+      <div class="svc"><div class="folder">✍️</div><div class="tag">Content Operations</div><h3>Posts, Stories &amp; Emails</h3><p>Every newsletter becomes a week of social posts, carousels and emails.</p></div>
+      <div class="svc"><div class="folder">🎯</div><div class="tag">Ad Creatives</div><h3>Testimonial Ads</h3><p>Square, feed and story sizes, on brand every time.</p></div>
+      <div class="svc"><div class="folder">⚙️</div><div class="tag">Automation &amp; Data</div><h3>GoHighLevel Systems</h3><p>Automations and contact databases that keep themselves up to date.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="kicker">Packages</div>
+    <h2>choose your package.</h2>
+    <p class="sub">Pick the level of support that fits your week. No lock-ins, no surprises.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Starter · 10 hrs/wk</h3>
+        <div class="price">$8 <small>/ hour</small></div>
+        <ul>
+          <li>Calendar &amp; scheduling</li>
+          <li>Inbox management</li>
+          <li>Basic admin tasks</li>
+          <li>Priority-ordered weekly plan</li>
+        </ul>
+        <a class="btn light" href="mailto:rjewille@gmail.com?subject=Starter%20Package">Email to Book a Call&nbsp;↗</a>
+      </div>
+      <div class="plan featured">
+        <div class="badge">Most popular</div>
+        <h3>Premium · 30 hrs/wk</h3>
+        <div class="price">$12 <small>/ hour</small></div>
+        <ul>
+          <li>Everything in Standard</li>
+          <li>Xero bookkeeping &amp; reconciliation</li>
+          <li>Lead research &amp; dossiers</li>
+          <li>Content operations, end to end</li>
+          <li>Nothing overlooked, ever</li>
+        </ul>
+        <a class="btn" href="mailto:rjewille@gmail.com?subject=Premium%20Package">Email to Book a Call&nbsp;↗</a>
+      </div>
+      <div class="plan">
+        <h3>Standard · 20 hrs/wk</h3>
+        <div class="price">$10 <small>/ hour</small></div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Xero bookkeeping</li>
+          <li>Lead research</li>
+          <li>Content support</li>
+        </ul>
+        <a class="btn light" href="mailto:rjewille@gmail.com?subject=Standard%20Package">Email to Book a Call&nbsp;↗</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:34px;font-size:14.5px;color:#e6c9cd"><strong style="color:#fff">Not ready for a retainer? No problem!</strong> Get flexible support at just <strong style="color:#fff">$6 per hour</strong> — perfect for one-time tasks.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testimonials">
+  <div class="wrap">
+    <div class="kicker">Kind words</div>
+    <h2>kind words from clients.</h2>
+    <p class="sub">What the people I support say about working together.</p>
+    <div class="quotes">
+      <div class="quote">
+        <p class="bubble">"Jewille, you've more than earned it, and I don't think you have any understanding of just how much you're helping me. You taking care of everything you do means that I can focus on what I should be focusing on as a CEO, and I appreciate you every single day. Keep up the great work!"</p>
+        <div class="who"><div class="init">MF</div><div><b>Maeve Ferguson</b><span>CEO, Maeve Ferguson Consulting</span></div></div>
+      </div>
+      <div class="quote">
+        <p class="bubble">"We've been so happy with how much you've stepped up across the board, from financial management to weekly content, and honestly just being someone we know we can trust to take things off our plate and make sure they're handled with care."</p>
+        <div class="who"><div class="init">NJ</div><div><b>Nicole Janton</b><span>COO, Maeve Ferguson Consulting</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools">
+  <div class="wrap">
+    <div class="kicker">Tools I used</div>
+    <h2>tools &amp; platforms I know.</h2>
+    <p class="sub">A list of tools and platforms I'm familiar with, to give you an idea.</p>
+    <div class="tool-grid">
+      <span class="tool">Xero</span>
+      <span class="tool">Slack</span>
+      <span class="tool">Asana</span>
+      <span class="tool">Google Workspace</span>
+      <span class="tool">GoHighLevel</span>
+      <span class="tool">Claude AI</span>
+      <span class="tool">Canva</span>
+      <span class="tool">Amp Code</span>
+      <span class="tool">Medium</span>
+      <span class="tool">ManyChat</span>
+      <span class="tool">Substack</span>
+      <span class="tool">LinkedIn</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="kicker">Experience</div>
+    <h2>where I've worked.</h2>
+    <p class="sub">A background in bookkeeping, clinic support and office administration.</p>
+    <div class="timeline">
+      <div class="titem">
+        <div class="when">Dec 2025 – Present</div>
+        <div>
+          <h3>Executive Assistant to the Founder</h3>
+          <div class="meta">Maeve Ferguson Consulting · Ireland, remote</div>
+          <p>Calendar, inbox, bookkeeping, lead research and content operations for a busy consulting founder.</p>
+        </div>
+      </div>
+      <div class="titem">
+        <div class="when">Jan 2024 – Jun 2024</div>
+        <div>
+          <h3>Clinic Assistant</h3>
+          <div class="meta">Front desk, appointments and patient records</div>
+          <p>Kept the clinic's front desk, appointments and patient records running smoothly.</p>
+        </div>
+      </div>
+      <div class="titem">
+        <div class="when">2022 – 2023</div>
+        <div>
+          <h3>Bookkeeper</h3>
+          <div class="meta">Alturas</div>
+          <p>Transactions, reconciliations and reporting.</p>
+        </div>
+      </div>
+      <div class="titem">
+        <div class="when">2012 – 2014</div>
+        <div>
+          <h3>Business Administration and Office Services (BOAS)</h3>
+          <div class="meta">AMA Computer Learning Center</div>
+          <p>Foundation in office administration and business services.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="wrap cta-grid">
+    <div>
+      <div class="kicker" style="color:var(--blush)">Let's work together</div>
+      <h2>Ready to get time back in your day?</h2>
+      <p>I know what it takes to keep a founder's week on track, from the calendar to the books. Email me and take the stress off your plate.</p>
+      <a class="btn" href="mailto:rjewille@gmail.com?subject=Discovery%20Call">Email to Book a Call&nbsp;↗</a>
+    </div>
+    <div class="cta-note">
+      <b>What happens next</b><br><br>
+      You email me → we hop on a short discovery call → I send a simple proposal with the package that fits your week. Most clients start within days.
+      <br><br>
+      ✉ &nbsp;rjewille@gmail.com<br>
+      ☎ &nbsp;0930 288 4899<br>
+      📍 &nbsp;Escalante City, Negros Occidental, PH — working remotely
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Jewille Dagami</b> · Remote Executive Assistant</div>
+    <div>© 2026 · I keep founders organized, on time &amp; on track.</div>
+  </div>
+</footer>
+
+</body>
+</html>
